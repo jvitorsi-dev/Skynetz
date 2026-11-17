@@ -1,6 +1,6 @@
 ﻿using Skynetz.Domain.Entities;
 
-namespace Skynetz.Application.Interfaces
+namespace Skynetz.Application.Abstractions.Persistence
 {
     public interface ISimulacaoRepository
     {

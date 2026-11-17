@@ -8,6 +8,11 @@ namespace Skynetz.Domain.Entities
         public string DddDestino { get; private set; }
         public decimal ValorPorMinuto { get; private set; }
 
+        private Tarifa()
+        {
+            // Usado pelo EF6 ao carregar a entidade do banco.
+        }
+
         public Tarifa(string dddOrigem, string dddDestino, decimal valorPorMinuto)
         {
             if (string.IsNullOrWhiteSpace(dddOrigem))

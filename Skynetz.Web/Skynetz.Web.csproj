@@ -179,6 +179,7 @@
     <Content Include="Bundle.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\ApplicationComposition.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Default.aspx.cs">
@@ -218,6 +219,10 @@
     <ProjectReference Include="..\Skynetz.Application\Skynetz.Application.csproj">
       <Project>{32e320a6-7809-4d29-9e90-70abe901043d}</Project>
       <Name>Skynetz.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Skynetz.Domain\Skynetz.Domain.csproj">
+      <Project>{88E79A08-7E97-49F1-9562-C7B876F8A10C}</Project>
+      <Name>Skynetz.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\Skynetz.Infrastructure\Skynetz.Infrastructure.csproj">
       <Project>{eae095be-1db0-4e36-8775-5a471665dcbe}</Project>

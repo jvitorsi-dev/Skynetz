@@ -1,8 +1,8 @@
 <Solution>
   <Folder Name="/src/">
-    <Project Path="Skynetz.Application/Skynetz.Application.csproj" />
-    <Project Path="Skynetz.Domain/Skynetz.Domain.csproj" />
-    <Project Path="Skynetz.Infrastructure/Skynetz.Infrastructure.csproj" />
-    <Project Path="Skynetz.Web/Skynetz.Web.csproj" />
+    <Project Path="Skynetz.Application/Skynetz.Application.csproj" Id="32e320a6-7809-4d29-9e90-70abe901043d" />
+    <Project Path="Skynetz.Domain/Skynetz.Domain.csproj" Id="88e79a08-7e97-49f1-9562-c7b876f8a10c" />
+    <Project Path="Skynetz.Infrastructure/Skynetz.Infrastructure.csproj" Id="eae095be-1db0-4e36-8775-5a471665dcbe" />
+    <Project Path="Skynetz.Web/Skynetz.Web.csproj" Id="1103758e-1757-426d-998f-c9cbfd8744b3" />
   </Folder>
 </Solution>

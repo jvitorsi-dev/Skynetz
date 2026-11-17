@@ -7,6 +7,11 @@ namespace Skynetz.Domain.Entities
         public string Nome { get; private set; }
         public int MinutosIncluidos { get; private set; }
 
+        private Plano()
+        {
+            // Usado pelo EF6 ao carregar a entidade do banco.
+        }
+
         public Plano(string nome, int minutosIncluidos)
         {
             if (string.IsNullOrWhiteSpace(nome))
