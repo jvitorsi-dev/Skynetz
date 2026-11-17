@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="Skynetz.Application/Skynetz.Application.csproj" />
+    <Project Path="Skynetz.Domain/Skynetz.Domain.csproj" />
+    <Project Path="Skynetz.Infrastructure/Skynetz.Infrastructure.csproj" />
+    <Project Path="Skynetz.Web/Skynetz.Web.csproj" />
+  </Folder>
+</Solution>
