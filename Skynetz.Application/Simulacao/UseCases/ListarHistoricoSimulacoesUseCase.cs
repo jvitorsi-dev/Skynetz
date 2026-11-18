@@ -17,15 +17,22 @@ namespace Skynetz.Application.Simulacoes.UseCases
                 ?? throw new ArgumentNullException("simulacaoRepository");
         }
 
-        public IReadOnlyList<SimulacaoHistoricoDto> Executar(int quantidade)
+        public IReadOnlyList<SimulacaoHistoricoDto> Executar(
+            Guid visitanteId,
+            int quantidade)
         {
+            if (visitanteId == Guid.Empty)
+                throw new ArgumentException(
+                    "O identificador do visitante é obrigatório.",
+                    "visitanteId");
+
             if (quantidade <= 0)
                 throw new ArgumentOutOfRangeException(
                     "quantidade",
                     "A quantidade deve ser maior que zero.");
 
             return _simulacaoRepository
-                .ListarRecentes(quantidade)
+                .ListarRecentes(visitanteId, quantidade)
                 .Select(s => new SimulacaoHistoricoDto(
                     s.Id,
                     s.DddOrigem,

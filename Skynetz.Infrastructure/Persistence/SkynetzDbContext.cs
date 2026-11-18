@@ -50,6 +50,10 @@ namespace Skynetz.Infrastructure.Persistence
                 .HasKey(s => s.Id);
 
             modelBuilder.Entity<Simulacao>()
+                .Property(s => s.VisitanteId)
+                .IsRequired();
+
+            modelBuilder.Entity<Simulacao>()
                 .Property(s => s.DddOrigem)
                 .IsRequired()
                 .HasMaxLength(3);

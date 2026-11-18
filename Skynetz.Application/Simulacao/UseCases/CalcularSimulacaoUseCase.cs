@@ -56,6 +56,7 @@ namespace Skynetz.Application.Simulacoes.UseCases
                 command.Minutos);
 
             var simulacao = new Simulacao(
+                command.VisitanteId,
                 tarifa,
                 plano,
                 command.Minutos,

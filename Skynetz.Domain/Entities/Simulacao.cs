@@ -7,6 +7,7 @@ namespace Skynetz.Domain.Entities
     public class Simulacao
     {
         public Guid Id { get; private set; }
+        public Guid VisitanteId { get; private set; }
         public string DddOrigem { get; private set; }
         public string DddDestino { get; private set; }
         public int MinutosLigacao { get; private set; }
@@ -26,11 +27,17 @@ namespace Skynetz.Domain.Entities
         }
 
         public Simulacao(
+            Guid visitanteId,
             Tarifa tarifa,
             Plano plano,
             int minutosLigacao,
             ResultadoCalculo resultado)
         {
+            if (visitanteId == Guid.Empty)
+                throw new ArgumentException(
+                    "O identificador do visitante é obrigatório.",
+                    "visitanteId");
+
             if (tarifa == null)
                 throw new ArgumentNullException("tarifa");
 
@@ -46,6 +53,7 @@ namespace Skynetz.Domain.Entities
                     "O tempo da ligação não pode ser negativo.");
 
             Id = Guid.NewGuid();
+            VisitanteId = visitanteId;
             DddOrigem = tarifa.DddOrigem;
             DddDestino = tarifa.DddDestino;
             MinutosLigacao = minutosLigacao;

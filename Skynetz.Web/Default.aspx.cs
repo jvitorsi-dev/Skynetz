@@ -1,14 +1,23 @@
-﻿using System;
+﻿using Skynetz.Application.Simulacoes.Commands;
+using Skynetz.Web.App_Start;
+using Skynetz.Web.Services;
+using System;
 using System.Globalization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Skynetz.Application.Simulacoes.Commands;
-using Skynetz.Web.App_Start;
 
 namespace Skynetz.Web
 {
     public partial class _Default : Page
     {
+        private Guid _visitanteId;
+
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            var cookieProvider = new VisitanteCookieProvider();
+            _visitanteId = cookieProvider.ObterOuCriar(Request, Response);
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -43,7 +52,7 @@ namespace Skynetz.Web
         {
             gvHistorico.DataSource = ApplicationComposition
                 .CriarCasoDeUsoListarHistorico()
-                .Executar(20);
+                .Executar(_visitanteId, 20);
 
             gvHistorico.DataBind();
         }
@@ -72,6 +81,7 @@ namespace Skynetz.Web
             try
             {
                 var command = new CalcularSimulacaoCommand(
+                    _visitanteId,
                     ddlOrigem.SelectedValue,
                     ddlDestino.SelectedValue,
                     minutos,

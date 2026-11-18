@@ -55,6 +55,10 @@
     <Compile Include="Migrations\202611172326133_CriarEstruturaInicial.Designer.cs">
       <DependentUpon>202611172326133_CriarEstruturaInicial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202611180332249_AdicionarVisitanteIdEmSimulacoes.cs" />
+    <Compile Include="Migrations\202611180332249_AdicionarVisitanteIdEmSimulacoes.Designer.cs">
+      <DependentUpon>202611180332249_AdicionarVisitanteIdEmSimulacoes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Persistence\SkynetzDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,6 +83,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202611172326133_CriarEstruturaInicial.resx">
       <DependentUpon>202611172326133_CriarEstruturaInicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202611180332249_AdicionarVisitanteIdEmSimulacoes.resx">
+      <DependentUpon>202611180332249_AdicionarVisitanteIdEmSimulacoes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

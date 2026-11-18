@@ -1,6 +1,7 @@
 ﻿using Skynetz.Application.Abstractions.Persistence;
 using Skynetz.Domain.Entities;
 using Skynetz.Infrastructure.Persistence;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -17,11 +18,12 @@ namespace Skynetz.Infrastructure.Repositories
             }
         }
 
-        public IReadOnlyList<Simulacao> ListarRecentes(int quantidade)
+        public IReadOnlyList<Simulacao> ListarRecentes(Guid visitanteId, int quantidade)
         {
             using (var context = new SkynetzDbContext())
             {
                 return context.Simulacoes
+                    .Where(s => s.VisitanteId == visitanteId)
                     .OrderByDescending(s => s.CriadaEmUtc)
                     .Take(quantidade)
                     .ToList();
