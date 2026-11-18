@@ -47,7 +47,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Simulacao\Commands\CalcularSimulacaoCommand.cs" />
     <Compile Include="Simulacao\DTOs\CalcularSimulacaoResultDto.cs" />
+    <Compile Include="Simulacao\DTOs\OpcoesSimulacaoDto.cs" />
+    <Compile Include="Simulacao\DTOs\PlanoOpcaoDto.cs" />
+    <Compile Include="Simulacao\DTOs\SimulacaoHistoricoDto.cs" />
     <Compile Include="Simulacao\UseCases\CalcularSimulacaoUseCase.cs" />
+    <Compile Include="Simulacao\UseCases\ListarHistoricoSimulacoesUseCase.cs" />
+    <Compile Include="Simulacao\UseCases\ObterOpcoesSimulacaoUseCase.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Skynetz.Domain\Skynetz.Domain.csproj">

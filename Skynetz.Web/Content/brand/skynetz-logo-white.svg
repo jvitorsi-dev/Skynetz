@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 88" role="img" aria-labelledby="title desc">
+  <title id="title">Skynetz FaleMais</title>
+  <desc id="desc">Marca tipográfica Skynetz para fundo escuro, com símbolo de comunicação por rotas conectadas.</desc>
+  <g transform="translate(5 8)">
+    <rect x="0" y="0" width="72" height="72" rx="19" fill="#fff" fill-opacity=".08" stroke="#fff" stroke-opacity=".17"/>
+    <path d="M17 43c7-16 14-16 21 0s14 16 21 0" fill="none" stroke="#70c7cf" stroke-width="4.5" stroke-linecap="round"/>
+    <circle cx="17" cy="43" r="5.5" fill="#f07858"/>
+    <circle cx="59" cy="43" r="5.5" fill="#f07858"/>
+    <path d="M21 26h30" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="36" cy="26" r="3.5" fill="#fff"/>
+  </g>
+  <text x="91" y="43" fill="#fff" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="-.8">Skynetz</text>
+  <text x="93" y="67" fill="#b9c8d4" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="2.2">FALEMAIS</text>
+</svg>
