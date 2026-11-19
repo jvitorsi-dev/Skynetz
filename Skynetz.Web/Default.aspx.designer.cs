@@ -96,6 +96,15 @@ namespace Skynetz.Web
         protected global::System.Web.UI.WebControls.DropDownList ddlPlano;
 
         /// <summary>
+        /// Controle btnCompararPlanos.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCompararPlanos;
+
+        /// <summary>
         /// Controle btnCalcular.
         /// </summary>
         /// <remarks>
@@ -148,6 +157,33 @@ namespace Skynetz.Web
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMinutosExcedentes;
+
+        /// <summary>
+        /// Controle pnlComparacao.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlComparacao;
+
+        /// <summary>
+        /// Controle lblValorSemPlanoComparacao.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblValorSemPlanoComparacao;
+
+        /// <summary>
+        /// Controle rptPlanos.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptPlanos;
 
         /// <summary>
         /// Controle gvHistorico.

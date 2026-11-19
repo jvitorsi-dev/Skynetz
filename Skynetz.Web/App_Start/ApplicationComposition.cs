@@ -27,5 +27,12 @@ namespace Skynetz.Web.App_Start
             return new ListarHistoricoSimulacoesUseCase(
                 new SimulacaoRepository());
         }
+        public static CompararPlanosUseCase CriarCasoDeUsoCompararPlanos()
+        {
+            return new CompararPlanosUseCase(
+                new TarifaRepository(),
+                new PlanoRepository(),
+                new CalculadoraDeLigacao());
+        }
     }
 }

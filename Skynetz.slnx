@@ -5,4 +5,7 @@
     <Project Path="Skynetz.Infrastructure/Skynetz.Infrastructure.csproj" Id="eae095be-1db0-4e36-8775-5a471665dcbe" />
     <Project Path="Skynetz.Web/Skynetz.Web.csproj" Id="1103758e-1757-426d-998f-c9cbfd8744b3" />
   </Folder>
+  <Folder Name="/tests/">
+    <Project Path="Skynetz.Tests/Skynetz.Tests.csproj" Id="03973720-27f1-407f-a4a8-ef2460dc6eac" />
+  </Folder>
 </Solution>

@@ -1,4 +1,5 @@
 ﻿using Skynetz.Application.Simulacoes.Commands;
+using Skynetz.Application.Simulacoes.Queries;
 using Skynetz.Web.App_Start;
 using Skynetz.Web.Services;
 using System;
@@ -60,6 +61,7 @@ namespace Skynetz.Web
         protected void btnCalcular_Click(object sender, EventArgs e)
         {
             pnlResultado.Visible = false;
+            pnlComparacao.Visible = false;
             lblMensagem.Text = "";
 
             if (string.IsNullOrWhiteSpace(ddlOrigem.SelectedValue) ||
@@ -106,6 +108,51 @@ namespace Skynetz.Web
                 pnlResultado.Visible = true;
 
                 CarregarHistorico();
+            }
+            catch (InvalidOperationException ex)
+            {
+                lblMensagem.Text = ex.Message;
+            }
+        }
+
+        protected void btnCompararPlanos_Click(object sender, EventArgs e)
+        {
+            pnlResultado.Visible = false;
+            pnlComparacao.Visible = false;
+            lblMensagem.Text = "";
+
+            if (string.IsNullOrWhiteSpace(ddlOrigem.SelectedValue) ||
+                string.IsNullOrWhiteSpace(ddlDestino.SelectedValue))
+            {
+                lblMensagem.Text = "Selecione origem e destino para comparar os planos.";
+                return;
+            }
+
+            int minutos;
+            if (!int.TryParse(txtMinutos.Text, out minutos) || minutos < 0)
+            {
+                lblMensagem.Text =
+                    "Informe um número inteiro de minutos igual ou maior que zero.";
+                return;
+            }
+
+            try
+            {
+                var query = new CompararPlanosQuery(
+                    ddlOrigem.SelectedValue,
+                    ddlDestino.SelectedValue,
+                    minutos);
+
+                var resultado = ApplicationComposition
+                    .CriarCasoDeUsoCompararPlanos()
+                    .Executar(query);
+
+                lblValorSemPlanoComparacao.Text = resultado.ValorSemPlano
+                    .ToString("C", CultureInfo.GetCultureInfo("pt-BR"));
+
+                rptPlanos.DataSource = resultado.Planos;
+                rptPlanos.DataBind();
+                pnlComparacao.Visible = true;
             }
             catch (InvalidOperationException ex)
             {

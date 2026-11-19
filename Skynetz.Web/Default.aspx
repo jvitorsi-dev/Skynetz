@@ -61,11 +61,17 @@
                     </div>
 
                     <div class="form-footer">
-                        <span class="form-note">O valor de aquisição do plano não está incluído.</span>
-                        <asp:Button ID="btnCalcular" runat="server"
-                            Text="Calcular ligação"
-                            CssClass="btn btn-primary calculate-button"
-                            OnClick="btnCalcular_Click" />
+                        <span class="form-note">Calcular salva a simulação do plano selecionado. Comparar exibe os três planos sem gravar no histórico.</span>
+                        <div class="form-actions">
+                            <asp:Button ID="btnCompararPlanos" runat="server"
+                                Text="Comparar planos"
+                                CssClass="btn btn-outline-primary compare-button"
+                                OnClick="btnCompararPlanos_Click" />
+                            <asp:Button ID="btnCalcular" runat="server"
+                                Text="Calcular ligação"
+                                CssClass="btn btn-primary calculate-button"
+                                OnClick="btnCalcular_Click" />
+                        </div>
                     </div>
 
                     <asp:Label ID="lblMensagem" runat="server"
@@ -123,6 +129,69 @@
                         <span class="minutes-note__label">Minutos excedentes</span>
                         <strong><asp:Label ID="lblMinutosExcedentes" runat="server" /></strong>
                     </p>
+                </asp:Panel>
+
+                <asp:Panel ID="pnlComparacao" runat="server"
+                    CssClass="comparison-results" Visible="false">
+                    <div class="section-heading">
+                        <div>
+                            <span class="section-index" aria-hidden="true">02</span>
+                            <h2>Comparação dos planos</h2>
+                        </div>
+                        <p>Mesma rota e duração para todos os planos</p>
+                    </div>
+
+                    <div class="comparison-baseline">
+                        <span>Sem FaleMais</span>
+                        <strong><asp:Label ID="lblValorSemPlanoComparacao" runat="server" /></strong>
+                    </div>
+
+                    <div class="plan-comparison-grid">
+                        <asp:Repeater ID="rptPlanos" runat="server">
+                            <ItemTemplate>
+                                <article class="plan-comparison-card">
+                                    <div class="plan-card-heading">
+                                        <span class="plan-card-kicker">Plano FaleMais</span>
+                                        <h3><%#: Eval("NomePlano") %></h3>
+                                    </div>
+
+                                    <dl class="plan-card-details">
+                                        <div>
+                                            <dt>Franquia</dt>
+                                            <dd><%#: Eval("MinutosIncluidos") %> min</dd>
+                                        </div>
+                                        <div>
+                                            <dt>Excedentes</dt>
+                                            <dd><%#: Eval("MinutosExcedentes") %> min</dd>
+                                        </div>
+                                    </dl>
+
+                                    <div class="plan-card-price">
+                                        <span>Com FaleMais</span>
+                                        <strong><%#: Eval("ValorComPlano", "{0:C}") %></strong>
+                                    </div>
+
+                                    <div class="plan-card-difference">
+                                        <asp:PlaceHolder ID="phEconomia" runat="server"
+                                            Visible='<%# System.Convert.ToDecimal(Eval("DiferencaParaSemPlano")) > 0 %>'>
+                                            <span class="plan-difference-label plan-difference-label--saving">Economia</span>
+                                            <strong class="plan-difference-value plan-difference-value--saving"><%#: Eval("DiferencaParaSemPlano", "{0:C}") %></strong>
+                                        </asp:PlaceHolder>
+                                        <asp:PlaceHolder ID="phCustoAdicional" runat="server"
+                                            Visible='<%# System.Convert.ToDecimal(Eval("DiferencaParaSemPlano")) < 0 %>'>
+                                            <span class="plan-difference-label plan-difference-label--additional">Custo adicional</span>
+                                            <strong class="plan-difference-value plan-difference-value--additional"><%#: System.String.Format("{0:C}", System.Math.Abs(System.Convert.ToDecimal(Eval("DiferencaParaSemPlano")))) %></strong>
+                                        </asp:PlaceHolder>
+                                        <asp:PlaceHolder ID="phSemDiferenca" runat="server"
+                                            Visible='<%# System.Convert.ToDecimal(Eval("DiferencaParaSemPlano")) == 0 %>'>
+                                            <span class="plan-difference-label plan-difference-label--neutral">Diferença</span>
+                                            <strong class="plan-difference-value plan-difference-value--neutral">Mesmo valor</strong>
+                                        </asp:PlaceHolder>
+                                    </div>
+                                </article>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </div>
                 </asp:Panel>
 
                 <section class="history-section" aria-labelledby="historicoTitle">

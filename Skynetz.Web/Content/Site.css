@@ -677,3 +677,201 @@ body {
     }
 }
 
+/* Ações do simulador: cálculo persistente e comparação somente para consulta. */
+.form-actions {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 10px;
+}
+
+.compare-button {
+    min-height: 46px;
+    padding: 9px 17px;
+    border: 1px solid #9eb4c4;
+    border-radius: 7px;
+    background: #fff;
+    color: var(--sky-ink);
+    font-weight: 650;
+    transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+}
+
+    .compare-button:hover,
+    .compare-button:focus-visible {
+        border-color: var(--sky-blue);
+        background: #edf4f8;
+        color: var(--sky-ink);
+    }
+
+.comparison-results {
+    margin-top: 28px;
+}
+
+.comparison-baseline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 14px;
+    padding: 14px 18px;
+    border: 1px solid var(--sky-line);
+    border-left: 4px solid #94a6b4;
+    border-radius: 8px;
+    background: #fff;
+    color: var(--sky-muted);
+}
+
+    .comparison-baseline strong {
+        color: var(--sky-ink);
+        font-size: 1.15rem;
+        font-variant-numeric: tabular-nums;
+    }
+
+.plan-comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 14px;
+}
+
+.plan-comparison-card {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    padding: 19px;
+    border: 1px solid var(--sky-line);
+    border-top: 3px solid var(--sky-teal);
+    border-radius: var(--sky-radius);
+    background: #fff;
+    box-shadow: var(--sky-shadow);
+}
+
+.plan-card-heading {
+    min-height: 64px;
+}
+
+.plan-card-kicker {
+    color: var(--sky-muted);
+    font-size: .74rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.plan-card-heading h3 {
+    margin: 5px 0 0;
+    color: var(--sky-ink);
+    font-size: 1.08rem;
+    font-weight: 700;
+}
+
+.plan-card-details {
+    display: grid;
+    gap: 8px;
+    margin: 8px 0 16px;
+}
+
+    .plan-card-details > div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .plan-card-details dt {
+        color: var(--sky-muted);
+        font-size: .83rem;
+        font-weight: 500;
+    }
+
+    .plan-card-details dd {
+        margin: 0;
+        color: var(--sky-copy);
+        font-size: .85rem;
+        font-weight: 650;
+        font-variant-numeric: tabular-nums;
+    }
+
+.plan-card-price {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: auto;
+    padding: 13px 0 12px;
+    border-top: 1px solid #edf1f4;
+}
+
+    .plan-card-price span {
+        color: var(--sky-muted);
+        font-size: .82rem;
+    }
+
+    .plan-card-price strong {
+        color: #176c68;
+        font-size: 1.45rem;
+        font-weight: 750;
+        letter-spacing: -.025em;
+        font-variant-numeric: tabular-nums;
+    }
+
+.plan-card-difference {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+    padding-top: 10px;
+    border-top: 1px solid #edf1f4;
+}
+
+.plan-difference-label {
+    font-size: .8rem;
+    font-weight: 600;
+}
+
+.plan-difference-label--saving,
+.plan-difference-value--saving {
+    color: var(--sky-success);
+}
+
+.plan-difference-label--additional,
+.plan-difference-value--additional {
+    color: var(--sky-danger);
+}
+
+.plan-difference-label--neutral,
+.plan-difference-value--neutral {
+    color: var(--sky-muted);
+}
+
+.plan-difference-value {
+    text-align: right;
+    font-size: .88rem;
+    font-weight: 750;
+    font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 991.98px) {
+    .plan-comparison-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 767.98px) {
+    .form-actions {
+        display: grid;
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+
+        .form-actions .btn {
+            width: 100%;
+        }
+
+    .plan-comparison-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .plan-card-heading {
+        min-height: 0;
+    }
+}
