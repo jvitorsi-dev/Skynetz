@@ -2,8 +2,6 @@
 
 Simulador de chamadas nacionais para o produto fictício **FaleMais**, da Skynetz. O sistema compara o custo de uma ligação com e sem plano, persiste cada simulação e apresenta ao visitante o histórico associado ao navegador atual.
 
-> Projeto de demonstração técnica desenvolvido como desafio de processo seletivo.
-
 ## Objetivos
 
 - Apresentar o cálculo de forma transparente ao cliente.
