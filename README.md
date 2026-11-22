@@ -127,6 +127,8 @@ O `ScriptManager` está no `Site.Master` e o `UpdatePanel` envolve formulário, 
 
 A estrutura do banco é versionada com EF6 Code First Migrations. Os dados iniciais de tarifas e planos são inseridos pelo `Seed`. As migrations são parte do código-fonte e devem ser mantidas no Git; o banco local e os arquivos de dados não devem ser commitados.
 
+Na inicialização da aplicação, `DatabaseInitializer` (em `Skynetz.Infrastructure/Migrations`) registra `MigrateDatabaseToLatestVersion<SkynetzDbContext, Configuration>` no EF6. Na primeira vez que um `SkynetzDbContext` é usado, as migrations pendentes são aplicadas e o `Seed` roda automaticamente; a chamada é feita em `Global.asax.cs`, antes de qualquer requisição.
+
 Consultas de histórico são expressas em LINQ/EF6, usando o GUID como valor tipado no filtro. Não se concatena o valor do cookie em SQL manual.
 
 ## Testes automatizados
@@ -155,13 +157,13 @@ No Visual Studio, execute os testes pelo **Test Explorer**. Os cenários de comp
         providerName="System.Data.SqlClient" />
    ```
 
-4. No Package Manager Console, aplique as migrations:
+4. (Opcional) Aplique as migrations manualmente no Package Manager Console:
 
    ```powershell
    Update-Database -ProjectName Skynetz.Infrastructure -StartUpProjectName Skynetz.Web
    ```
 
-5. Execute `Skynetz.Web` no Visual Studio. O EF cria/atualiza o banco e o `Seed` registra as tarifas e os planos iniciais.
+5. Execute `Skynetz.Web` no Visual Studio. Na primeira requisição, o `DatabaseInitializer` aplica as migrations pendentes e o `Seed` registra as tarifas e os planos iniciais. Para o cenário local, não é preciso rodar `Update-Database`.
 
 Para outra instância, altere `Data Source` e, se necessário, autenticação na connection string. Não coloque senhas reais no repositório.
 
@@ -185,4 +187,3 @@ Para outra instância, altere `Data Source` e, se necessário, autenticação na
 - `CalcularSimulacaoUseCase`: simulação válida salva com o GUID do visitante; rota sem tarifa não salva.
 - `ListarHistoricoSimulacoesUseCase`: GUID e quantidade são encaminhados ao repositório; GUID vazio é rejeitado.
 - `CompararPlanosUseCase`: os três resultados e diferenças são calculados; rota sem tarifa gera erro de negócio.
-
