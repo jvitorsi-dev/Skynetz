@@ -60,6 +60,8 @@
       <DependentUpon>202611180332249_AdicionarVisitanteIdEmSimulacoes.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+	<Compile Include="Migrations\DatabaseInitializer.cs" />
+    <Compile Include="Migrations\DatabaseInitializer.cs" />
     <Compile Include="Persistence\SkynetzDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\PlanoRepository.cs" />
